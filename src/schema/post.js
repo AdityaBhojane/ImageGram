@@ -1,22 +1,21 @@
 import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema({
-    title:{
-        type:String,
-        require:true,
-        minLength:5,
+    caption: {
+        type: String,
+        required: true,
+        minLength: 5
     },
-    description:{
-        type:String,
-        require:true,
-        minLength:20,
+    image: {
+        type: String,
+        required: true
     },
-    image:{
-        data:Buffer,
-        type:string
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
 });
 
-const post = mongoose.model("post",postSchema);
+const post = mongoose.model("Post", postSchema); // post collection
 
 export default post;
